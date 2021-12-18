@@ -1,0 +1,5 @@
+#include <buildNumber.hpp>
+
+const std::string getBuildNumber() {
+	return "@BUILD_NUMBER@";
+}
