@@ -49,6 +49,12 @@ the working dorectory for the command which installs the npm dependencies and
 copy it to the cache folder. If cadir finds a cached copy with a fitting name
 than it will copy or link it to the projekt folder.
 
+### Identity by directoy content
+By default, the identity check is made by build a has from one file. If you want to
+check about a change inside a folder to create a cache for compiled or transpiled 
+code you can create a file containing all hashes of each single file in the folder
+and it subfolders. Than the new created file is your identity file.
+
 ## Arguments
             --cache-source                  The directory which should be cached"
             --identity-file                 File which shows differences
@@ -58,7 +64,7 @@ than it will copy or link it to the projekt folder.
             --finalize                      (optional) Command which is called after cache is regenerated, linked or copied");
             -v,--verbose                    (optional) Show verbose output
             -a,--archive                    (optional) In case of copying the data a tar compressed archive (tar.gz) will be created
-            -l,--link                       (optional)  Link cache instead of copy
+            -l,--link                       (optional) Link cache instead of copy
             -h,--help                       (optional) Show help
 
 ## Return values
