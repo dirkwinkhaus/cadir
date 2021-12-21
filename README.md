@@ -68,17 +68,18 @@ and it subfolders. Than the new created file is your identity file.
             -h,--help                       (optional) Show help
 
 ## Return values
-     0 = Successfully executed
-     1 = Wrong usage of arguments
-     2 = Identity file error (not found/no rights)
-     3 = Setup command failed
-     4 = Finalize command failed
-     5 = Cannot copy to cache directoy
-     6 = Cannot copy from cache directoy
-     7 = Cannot create link from cache
-     8 = Removing existing cache folder failed
-     9 = Cannot create cache directories
-    10 = gzip error (only with option a, archive)
+     0 = Successfully executed, found in cache
+     1 = Successfully executed, created cache
+     20 = Wrong usage of arguments
+     30 = Identity file error (not found/no rights)
+     40 = Setup command failed
+     50 = Finalize command failed
+     60 = Cannot copy to cache directoy
+     70 = Cannot copy from cache directoy
+     80 = Cannot create link from cache
+     90 = Removing existing cache folder failed
+    100 = Cannot create cache directories
+    110 = gzip error (only with option a, archive)
     
 # Change log
 ## 1.1.0    Archive

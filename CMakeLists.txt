@@ -13,7 +13,6 @@ add_custom_command(TARGET build
         COMMAND bash ${CMAKE_SOURCE_DIR}/buildNumber.sh ${CMAKE_SOURCE_DIR}/buildNumber.cpp.in ${CMAKE_BINARY_DIR}/buildNumber.cpp
 )
 
-
 #########################
 ## FILESYSTEM ## BEGIN ##
 try_compile(HAS_FILESYSTEM "${CMAKE_BINARY_DIR}/temp" "${CMAKE_SOURCE_DIR}/compiletest/has_filesystem.cpp"
@@ -25,7 +24,6 @@ configure_file(config.h.in config.h)
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 ## FILESYSTEM ## END ##
 #######################
-
 
 if (HAS_FILESYSTEM)
     set(FILESYSTEM_LIBS stdc++fs)
@@ -53,7 +51,6 @@ ExternalProject_Get_Property(lib_archive INSTALL_DIR)
 set(LIB_ARCHIVE_INSTALL_DIR ${INSTALL_DIR})
 file(MAKE_DIRECTORY ${LIB_ARCHIVE_INSTALL_DIR}/include)
 
-
 add_library(archive STATIC IMPORTED GLOBAL compiletest/has_filesystem.cpp)
 set_target_properties(archive PROPERTIES IMPORTED_LOCATION ${LIB_ARCHIVE_INSTALL_DIR}/lib/libarchive.a)
 set_target_properties(archive PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${LIB_ARCHIVE_INSTALL_DIR}/include)
@@ -62,7 +59,6 @@ add_dependencies(archive lib_archive)
 
 ## LIBARCHIVE ## END ##
 #######################
-
 
 #####################
 # OPENSSL ## BEGIN ##
@@ -77,7 +73,6 @@ include_directories(${OPENSSL_INCLUDE_DIR})
 
 # OPENSSL ## END ##
 #####################
-
 
 link_libraries(${OPENSSL_LIBRARIES} ${LIB_ARCHIVE_EXT_LIBS} ${FILESYSTEM_LIBS})
 

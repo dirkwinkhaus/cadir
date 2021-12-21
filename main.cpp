@@ -183,7 +183,11 @@ int main(int argumentCount, char **argumentList) {
             );
         }
 
-        return ExitCode::ok;
+        if (foundCache) {
+            return ExitCode::ok;
+        }
+
+        return ExitCode::createdCache;
     } catch (CadirException &exception) {
         trace(exception.what());
         return exception.getErrorCode();
