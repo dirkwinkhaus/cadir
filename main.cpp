@@ -199,16 +199,18 @@ void showHelpText(const std::string &helpText) {
     trace(true);
     trace("Exit Codes", true);
     trace("==========", true);
-    trace("0 = Successfully executed", true);
-    trace("1 = Wrong usage of arguments", true);
-    trace("2 = Identity file error (not found/no rights)", true);
-    trace("3 = Setup command failed", true);
-    trace("4 = Finalize command failed", true);
-    trace("5 = Cannot copy to cache directoy", true);
-    trace("6 = Cannot copy from cache directoy", true);
-    trace("7 = Cannot create link from cache", true);
-    trace("8 = Removing existing cache folder failed", true);
-    trace("9 = Cannot create cache directories", true);
+    trace("0 = Successfully executed, loaded from cache", true);
+    trace("1 = Successfully executed, create cache", true);
+    trace("20 = Wrong usage of arguments", true);
+    trace("30 = Identity file error (not found/no rights)", true);
+    trace("40 = Setup command failed", true);
+    trace("50 = Finalize command failed", true);
+    trace("60 = Cannot copy to cache directoy", true);
+    trace("70 = Cannot copy from cache directoy", true);
+    trace("80 = Cannot create link from cache", true);
+    trace("90 = Removing existing cache folder failed", true);
+    trace("100 = Cannot create cache directories", true);
+    trace("110 = gzip error", true);
     trace(true);
     trace("Version: " + CADIRFULLVERSION);
 }
