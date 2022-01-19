@@ -66,6 +66,8 @@ and it subfolders. Than the new created file is your identity file.
             -a,--archive                    (optional) In case of copying the data a tar compressed archive (tar.gz) will be created
             -l,--link                       (optional) Link cache instead of copy
             -h,--help                       (optional) Show help
+            -V,--version                    (optional) Show version
+            -s,--show-cache-hit             (optional) Show if cache was hit. Even if verbose is not set, this will be displayed
 
 ## Return values
       0 = Successfully executed

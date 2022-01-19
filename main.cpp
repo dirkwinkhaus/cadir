@@ -82,6 +82,7 @@ int main(int argumentCount, char **argumentList) {
         bool linkCache = false;
         bool showHelp = false;
         bool showVersion = false;
+        bool showCacheHit = false;
         bool archive = false;
 
         CLI::App app{"cadir description", "cadir"};
@@ -99,7 +100,8 @@ int main(int argumentCount, char **argumentList) {
         app.add_flag("-v,--verbose", verbose, "Show verbose output");
         app.add_flag("-l,--link", linkCache, "Link cache instead of copy");
         app.add_flag("-h,--help", showHelp, "Show help");
-        app.add_flag("--version", showVersion, "Show version");
+        app.add_flag("-s,--show-cache-hit", showCacheHit, "Show if source was taken from the cache");
+        app.add_flag("-V,--version", showVersion, "Show version");
 
         try {
             app.parse(argumentCount, argumentList);
@@ -181,6 +183,10 @@ int main(int argumentCount, char **argumentList) {
                     defaultCopyOptions,
                     archive
             );
+        }
+
+        if (showCacheHit) {
+            std::cout << std::endl << std::endl << "Cache: " << (foundCache ? "hit": "miss") << std::endl;
         }
 
         return ExitCode::ok;
