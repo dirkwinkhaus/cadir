@@ -24,7 +24,7 @@ const auto defaultCopyOptions = stdfs::copy_options::recursive |
                                 stdfs::copy_options::overwrite_existing |
                                 stdfs::copy_options::copy_symlinks;
 
-const std::string CADIRVERSION = "3.1.1";
+const std::string CADIRVERSION = "1.1.1";
 const std::string CADIRFULLVERSION = CADIRVERSION + "-" + getBuildNumber();
 
 bool verbose = false;
@@ -183,11 +183,7 @@ int main(int argumentCount, char **argumentList) {
             );
         }
 
-        if (foundCache) {
-            return ExitCode::ok;
-        }
-
-        return ExitCode::createdCache;
+        return ExitCode::ok;
     } catch (CadirException &exception) {
         trace(exception.what());
         return exception.getErrorCode();
@@ -199,18 +195,17 @@ void showHelpText(const std::string &helpText) {
     trace(true);
     trace("Exit Codes", true);
     trace("==========", true);
-    trace("0 = Successfully executed, loaded from cache", true);
-    trace("1 = Successfully executed, create cache", true);
-    trace("20 = Wrong usage of arguments", true);
-    trace("30 = Identity file error (not found/no rights)", true);
-    trace("40 = Setup command failed", true);
-    trace("50 = Finalize command failed", true);
-    trace("60 = Cannot copy to cache directoy", true);
-    trace("70 = Cannot copy from cache directoy", true);
-    trace("80 = Cannot create link from cache", true);
-    trace("90 = Removing existing cache folder failed", true);
-    trace("100 = Cannot create cache directories", true);
-    trace("110 = gzip error", true);
+    trace(" 0 = Successfully executed, loaded from cache", true);
+    trace(" 8 = Wrong usage of arguments", true);
+    trace(" 9 = Identity file error (not found/no rights)", true);
+    trace("10 = Setup command failed", true);
+    trace("11 = Finalize command failed", true);
+    trace("12 = Cannot copy to cache directoy", true);
+    trace("13 = Cannot copy from cache directoy", true);
+    trace("14 = Cannot create link from cache", true);
+    trace("15 = Removing existing cache folder failed", true);
+    trace("16 = Cannot create cache directories", true);
+    trace("17 = gzip error", true);
     trace(true);
     trace("Version: " + CADIRFULLVERSION);
 }
