@@ -165,7 +165,7 @@ int main(int argumentCount, char **argumentList) {
             );
         } else {
             commandString =
-                    (finalizeCommand != "")
+                    (!finalizeCommand.empty())
                     ? generateCommand(
                             commandWorkingDirectory,
                             finalizeCommand
@@ -295,8 +295,8 @@ std::string generateMd5FromString(const std::string &content) {
     MD5_Final(md5Data, &context);
 
     std::string md5String;
-    for (int i = 0; i < 16; i++) {
-        sprintf(buffer, "%02x", md5Data[i]);
+    for (unsigned char i : md5Data) {
+        sprintf(buffer, "%02x", i);
         md5String.append(buffer);
     }
 
